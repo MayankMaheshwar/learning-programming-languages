@@ -17,6 +17,8 @@
 # print(s1.get_college())
 
 
+
+
 # closure -  Inner function can access the variables and methods of its outer function and remembers its values.
 
 # def outer(msg):
@@ -37,26 +39,58 @@
 # counter2 = counter()
 # print(counter2())
 
+
+
+
+
+
 # __private/_protected
 
-class MyClass:
-    def __init__(self):
-        self.__private_var = 10
+# class MyClass:
+#     def __init__(self):
+#         self.__private_var = 10
 
-    def __change_private_method(self):
-        self.__private_var = 20
+#     def __change_private_method(self):
+#         self.__private_var = 20
 
-    def access_private_method(self):
-        self.__change_private_method()
-        print(self.__private_var)
+#     def access_private_method(self):
+#         self.__change_private_method()
+#         print(self.__private_var)
     
 
 
-obj = MyClass()
-# Accessing private variable (name mangling applied)
-print(obj._MyClass__private_var)  # Output: 10
-# Accessing private method (name mangling applied)
-obj.access_private_method()  # Output: 20
+# obj = MyClass()
+# # Accessing private variable (name mangling applied)
+# print(obj._MyClass__private_var)  # Output: 10
+# # Accessing private method (name mangling applied)
+# obj.access_private_method()  # Output: 20
+
+
+
+
+
+
+
+#property decorator - to make attribute changes automatically detectable
+
+class Circle:
+    def __init__(self, pi):
+        self.pi = pi
+
+    @property
+    def pi2(self):
+        """Getter method for the radius."""
+        return self.pi*self.pi
+
+# Usage
+circle = Circle(5)
+print(circle.pi2)  # Output: 5
+
+circle.pi = 10 
+print(circle.pi2)  #
+
+
+
 
 
 

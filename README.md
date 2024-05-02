@@ -1,1 +1,1 @@
-# learning-programming-languages-and-frameworks
+# learning-python-programming-language
