@@ -19,20 +19,49 @@
 
 # closure -  Inner function can access the variables and methods of its outer function and remembers its values.
 
-def outer(msg):
-    coumnt = 0
+# def outer(msg):
+#     coumnt = 0
 
-    def inner():
-        nonlocal count  # Use nonlocal to indicate we're modifying the count variable in the outer scope
-        count += 1
-        return count
+#     def inner():
+#         nonlocal count  # Use nonlocal to indicate we're modifying the count variable in the outer scope
+#         count += 1
+#         return count
 
-    return increment
+#     return increment
 
-# Usage
-counter1 = counter()
-print(counter1())  # Output: 1
-print(counter1())  # Output: 2
+# # Usage
+# counter1 = counter()
+# print(counter1())  # Output: 1
+# print(counter1())  # Output: 2
 
-counter2 = counter()
-print(counter2())
+# counter2 = counter()
+# print(counter2())
+
+# __private/_protected
+
+class MyClass:
+    def __init__(self):
+        self.__private_var = 10
+
+    def __change_private_method(self):
+        self.__private_var = 20
+
+    def access_private_method(self):
+        self.__change_private_method()
+        print(self.__private_var)
+    
+
+
+obj = MyClass()
+# Accessing private variable (name mangling applied)
+print(obj._MyClass__private_var)  # Output: 10
+# Accessing private method (name mangling applied)
+obj.access_private_method()  # Output: 20
+
+
+
+# duck-typing - means if object having certain methods enforced then it is duck-typed
+
+# method overloading not supported in python
+
+# dunder func. are inbuilt funcs to define the behavior of a class and a object, you can change that based on your needs (operator overloading)
